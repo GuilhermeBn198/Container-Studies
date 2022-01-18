@@ -1,0 +1,2 @@
+how do i build an docker image?
+	R: with DOCKER COMMIT  and DOCKERFILE, but docker commit is not really used, always go for DOCKERFILE

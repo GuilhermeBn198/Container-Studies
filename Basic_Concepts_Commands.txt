@@ -1,0 +1,49 @@
+/************************************************************************************************/
+INITIAL DOCKER COMMANDS!!
+
+	docker container run aaaaa --runs a container
+	
+	docker conteiner run --name aaaaa hello-world --create a container with the name of "aaaaa" with the image of the hello-world repository
+
+	docker container run --name aaaaa --rm hello-world --create a container named "aaaaa" which removes itself after its inicial startup
+
+	docker container ls --list all active containers in the actual filesystem
+	
+	docker container ls -a --list all containers present in the actual filesystem
+	
+	docker container rm aaaaa --delete a container which name is "aaaaa", it can delete a container with its ID too!
+	
+	docker container run -it aaaaa --runs a container in interactive mode and continuos mode
+
+	docker container run -it ubuntu /bin/bash --creates a container with a literal ubuntu bash running continuosly with all its configurations and capabilities
+
+	docker container run -d aaaaa --runs the container in the background which free the terminal for you to use
+
+	docker container run -d -p 8080:80 nginx --this command will run the container in background mode and will set the portbind to 8080:80 so we can access its contents through this port
+
+	docker container rm -f aaaaa --to force the command of deletion uppon a container running
+
+	the "-e" argument indicates to the docker engine that you are passing environment variables to the container.
+
+	example with a container functioning with the mongoDB image:
+	 docker container run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongouser -e MONGO_INITDB_ROOT_PASSWORD=mongopwd mongo
+
+/************************************************************************************************/
+TROUBLESHOOTING COMMANDS!!
+	docker container inspect (ID) --this command we can see all the properties of a container or object
+	
+	docker container exec -it (ID) /bin/bash--this command permit us to use the terminal inside a functioning container
+
+	docker stop (ID) --this command stops the execution of a container 
+
+	docker start (ID) --this command starts the execution of a container 
+
+	docker container logs (ID) --displays the current logs in the specified container, you can pass an integer argument after the ID to define the quantity of lines to display until the last line, also using -t it can display the date and hour of the outputs of the container
+
+
+/************************************************************************************************/
+CONTAINER CONCEPTS!! 
+
+	Our containers don't have direct contact with our machine and vice versa, to comunicate with it we have to use the PORTBINDING
+
+	Some containers have a more complicated setup than others, such as mongoDB container, which must have a user and password passed (through environment variables) in the initial setup so we can play with it, in these cases we can go to docker.hub and see in the documentation how we can access correctly these types of containers!
