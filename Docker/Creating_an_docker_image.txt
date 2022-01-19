@@ -1,0 +1,59 @@
+how do i build an docker image?
+	R: with DOCKER COMMIT  and DOCKERFILE, but docker commit is not really used, always go for DOCKERFILE but for didatic purposes we'll how to use the docker commit way too.
+
+	DOCKER COMMIT:
+		first of all you must have a modified docker image such as ubuntu image with something installed, like curl, then use the command
+		
+		docker commit (ID) name-which-u'd-like-to-put --this commad will create an image with the name of the image you put above
+
+	DOCKERFILE:
+		this method use a pre-existing archive which have all the configurations already setted so the terminal just do the work
+		you can see an example in the Dockerfile it this repository.
+		after the file is set you just need to do de commands:
+		
+		docker image build -t name-you-want-to-give . --the -t argument passes the next argument to be the name of the image and the . is where it'll be builded
+
+		the dockerfile method have multiple types of use in its repertory such as 
+
+		FROM = initializes the build of an image from another image
+		RUN = execute an command
+		LABEL = adds metadata to an image
+		CMD = define a command and/or the padronized parameters
+		EXPOSE = define that the container needs to export the port in question
+		ARG = define an agument to be used in the construction process
+		ENV = defines environment variables
+		ADD = copy remote archives or directories and add them to the filessystem of the image
+		COPY = copy archives or directories and add them to the filesystem of the image
+		ENTRYPOINT = help you in configuring a container that can be executed as .exe
+		VOLUME = define the volume 
+		WORKDIR = define the directory
+
+
+	docker image build -t guilhermebernardo/go-app:multi .
+
+	docker image ls --is used to see all the docker images that are available in your pc rn
+	
+	docker image prune --to remove all the not referenced images of your pc
+
+	docker image rm (ID) --to remove an image from your pc
+
+	docker image inspect (ID) --to see all the details of an image
+
+	docker image history (name) --gives you the history of the image
+
+	IN THE DOCKER REGISTRY SUCH AS DOCKER HUB IF YOU TYPE IN THE TERMINAL:
+		docker login --it will start prompt to verify your authentication and publish your image to the docker hub!
+		
+		docker push --to launch it to the cloud service
+
+		docker tag --to modify the name of a tag in the docker hub
+		
+
+	
+
+
+
+
+
+
+		

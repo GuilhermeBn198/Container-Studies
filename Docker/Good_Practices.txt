@@ -1,0 +1,93 @@
+GOOD PRACTICES WHEN CREATING YOUR DOCKER IMAGE:
+	how to name it:
+
+		guilhermebernardo/api-conversao:v1
+			  |			 |	     \
+		  	  V			 V		V
+	    	     Namepasce	  Repository     Tag
+		
+		OFFICIAL DOCKER IMAGES ARE DIFFERENT!
+
+				ubuntu:20.10
+				   |		\
+				   V		 V
+				Repositoy	Tag
+
+	ITS RECOMMENDED TO USE OFFICIAL IMAGES!!!
+		-----------BAD example:----------
+		FROM fulano/node     <-----
+		WORKDIR /app
+		COPY ./package*.json ./
+		RUN npm install
+		COPY . .
+		EXPOSE 8080
+		ENTRYPOINT ["node", "server.js"]
+
+		---------GOOD example:----------
+		FROM node    <----
+		WORKDIR /app
+		COPY ./package*.json ./
+		RUN npm install
+		COPY . .
+		EXPOSE 8080
+		ENTRYPOINT ["node", "server.js"]
+
+	ALWAYS SPECIFY THE TAG VERSION OF THE IMAGE!!!
+		
+		-----------BAD example:----------
+		FROM node    <----
+		WORKDIR /app
+		COPY ./package*.json ./
+		RUN npm install
+		COPY . .
+		EXPOSE 8080
+		ENTRYPOINT ["node", "server.js"]
+
+		-----------GOOD example:----------
+		FROM node:14.17.5    <----
+		WORKDIR /app
+		COPY ./package*.json ./
+		RUN npm install
+		COPY . .
+		EXPOSE 8080
+		ENTRYPOINT ["node", "server.js"]
+
+	USING MULTIPLE PROCESSES RUNNING IN A SINGLE CONTAINER IS BAD, YOU LOSE SCALABILITY AND PERFORMANCE IN THIS PROCESS!!
+		IN THIS CASE USE MULTIPLE CONTAINERS COMUNICATING WITH EACH OTHER!!
+
+	ALWAYS TRIES TO TAKE ADVANTAGE OF THE MULTIPLE LAYERS OF AN IMAGE!!
+		-----------BAD example:----------
+		FROM node:14.17.5 
+		WORKDIR /app
+		COPY . .
+		RUN npm install
+		EXPOSE 8080
+		ENTRYPOINT ["node", "server.js"]
+
+		-----------GOOD example:----------
+		FROM node:14.17.5 
+		WORKDIR /app
+		COPY ./package*.json ./  <----
+		RUN npm install
+		COPY . .
+		EXPOSE 8080
+		ENTRYPOINT ["node", "server.js"]
+		
+		THIS WILL PREVENT YOUR CONTAINER FROM ALWAYS TRYING UPDATE THE PACKAGE.JSON OF AN NODE APLICATION!!
+	
+	ALWAYS TRY TO USE THE .DOCKERIGNORE!!!!!!!!
+
+	COPY VS ADD!!!
+		ALWAYS USE THE COPY
+
+	ENTRYPOINT VS CMD
+	THE FIRST ONE IS IMMUTABLE, THE SECOND IS MUTABLE
+
+	MULTISTAGE BUILDING IS A THING!!!
+		IN COMPILE BASED LANGUAGES WE USE THIS METHOD SO THE CONTAINERS WITH THE APLICATIONS DONT GROW ASTRONOMICALLY LARGER THAN ANOTHER APLICATIONS.
+		THIS METHOD JUST SEPARATES THE PROCESS OF BUILDING IN VARIOUS TINY ONES
+		YOU CAN SE AN EXAMPLE IN THE GO-APP ENCOUNTERED IN THIS REPO!!
+
+
+	Docker Registry!!
+		its similar to github's functionality, we have the DOCKER HUB thats similar to it 

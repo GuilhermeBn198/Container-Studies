@@ -1,0 +1,1 @@
+first of all, to launch an aplication on a container you need the code, i'll use the example of the conversao-temperatura, in the src directory there is a dockerfile with the correct configuration of its commands, each line you add in that archive more layers of construction there will be.
