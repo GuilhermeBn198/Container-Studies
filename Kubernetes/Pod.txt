@@ -1,0 +1,10 @@
+the POD is the smallest object of an Kubernetes Kluster its in it that the container is executed. it functions similarly to a VM
+
+	to create a POD we just net to declare it in an archive such as the podtest.yaml
+	the POD is consisted of apiVersion which consists of the version of the POD that we can acquire with the command kubectl api-resources, kind is literaly what the name is, we declare the type of the object we weill create, matadata IS THE LITERAL DATA the principal is the name such as pod1 pod2, etc and spec is the specification which we'll put in the containe,  an basic exampl is set on podtest.yaml
+
+	to create the POD archive we neet to put the kubectl create -f example.yaml
+
+	we can see our created pods with the command kubectl get pods 
+
+	kubectl port-forward pod/pod1 8080:80 --is an example of how to setup a port-fowarding to a functioning pod!! we can also access its contents with a browser, just type in localhost:8080

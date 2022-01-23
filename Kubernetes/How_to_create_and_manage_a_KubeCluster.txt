@@ -1,0 +1,31 @@
+ways to create it:
+	On-premisse resources:
+	-KubeADM, RKE, MicroK8S for IOT, KubeSpray and K3S.
+	Kubernetes-as-service:
+	-AKS, EKS, GKS, ORACLE, AZURE.
+	Local Kubernetes Cluster:
+	-MiniKube, K3S, K8S, Kind with KubeADM, K3d with K3S base.
+
+
+This time we'll use the k3d local kubernetes cluster.
+	k3d cluster create --this command will create a cluster of only 1 container, and setup de kubectl to stabilish communication between the cluster 
+
+	k3d cluster create nome  --this will create the cluster with a custom name
+	
+	k3d cluster create --no-lb  --this argumente will say to the k3d to create a cluster without load balancing
+
+	k3d cluster create nome --servers X --agents Y  --these arguments will create a cluster with the name "nome" with X control planes & Y workers!
+
+	k3d cluster list --will list all the clusters currently available
+
+	k3d cluster delete nome --to delete a cluster 
+
+	kubectl get nodes --this will show all the nodes in the cluster
+
+	kubectl create -f example.yaml --to create an archive to with the .yaml file 
+
+	kubectl get pods --to see which pods were created 
+
+	kubectl port-forward pod/pod1 8080:80 --is an example of how to setup a port-fowarding to a functioning pod!!
+
+	kubectl api-resources --this will list all the necessary information of the resources we can use in the actual version of the kubernetes installed in your machine 

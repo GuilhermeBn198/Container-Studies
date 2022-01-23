@@ -1,0 +1,14 @@
+What's kubernetes?
+	its a tech that manages containers to acquire scabalabity, resiliency, self-healing of containers and load balancing, also equiped with a service discovery which helps us to locate the addres of a certain process
+
+	it can also gives us strategies of update which is REALLY GOOD for systems that MUST have to be online 24/7 like internet banking 
+
+	micro-services is really dependent of kubernetes.
+
+
+How does Kubernetes work?
+	it works with a cluster of machines divided in 2 types of each, the control pane(MASTER) and the worker node, the controle pane gerencies all the other machines such as worker nodes, these ones are where the applications will be running!
+
+	the control pane is composed by the controller manager which executes and gerencies all the other controllers of the kubernetes, the cloud controller manager, the Kube-Api-Server which is responsible for receiving all communication with the cluster, the ETCD which is a database that saves all the data in the kubernetes, the Scheduler which does the job of organizing what will be executed in the cluster.
+	
+	the Worker Node have the Kube Proxy which is responsible for all the comunications with the cluster and the Kubelet which is a manager of the node, responsible for garanteee the proper work of the node 
