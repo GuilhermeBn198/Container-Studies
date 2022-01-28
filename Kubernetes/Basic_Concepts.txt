@@ -12,3 +12,7 @@ How does Kubernetes work?
 	the control pane is composed by the controller manager which executes and gerencies all the other controllers of the kubernetes, the cloud controller manager, the Kube-Api-Server which is responsible for receiving all communication with the cluster, the ETCD which is a database that saves all the data in the kubernetes, the Scheduler which does the job of organizing what will be executed in the cluster.
 	
 	the Worker Node have the Kube Proxy which is responsible for all the comunications with the cluster and the Kubelet which is a manager of the node, responsible for garanteee the proper work of the node 
+
+Labels & selectors!
+	labels are resources of keys & values that we add in an object to mark it, ex: we can put the name of an app to identify and differentiate from others.
+	we use the selectors to literally select the labels.

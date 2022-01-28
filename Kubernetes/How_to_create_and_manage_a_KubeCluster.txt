@@ -8,6 +8,8 @@ ways to create it:
 
 
 This time we'll use the k3d local kubernetes cluster.
+
+USEFULL COMMANDS!
 	k3d cluster create --this command will create a cluster of only 1 container, and setup de kubectl to stabilish communication between the cluster 
 
 	k3d cluster create nome  --this will create the cluster with a custom name
@@ -29,3 +31,5 @@ This time we'll use the k3d local kubernetes cluster.
 	kubectl port-forward pod/pod1 8080:80 --is an example of how to setup a port-fowarding to a functioning pod!!
 
 	kubectl api-resources --this will list all the necessary information of the resources we can use in the actual version of the kubernetes installed in your machine 
+
+	kubectl apply -f example.yaml --this command is similar to kubectl create, the difference here is that when we want to update an object we can use this command
